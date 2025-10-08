@@ -1,4 +1,4 @@
-#include "find_primes.h"
+#include "../include/find_primes.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -28,14 +28,7 @@ unsigned long *find_primes(unsigned long n) {
       k += 1;
     }
   }
+  free(prime_list_temp);
   prime_list[k] = 0;
   return prime_list;
-}
-
-int prime_count(unsigned long *prime_array) {
-  size_t count = 0;
-  while (prime_array[count] != 0) {
-    count++;
-  }
-  return count;
 }
