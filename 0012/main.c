@@ -1,9 +1,33 @@
+#include "../include/array_utils.h"
+#include "../include/find_factors.h"
 #include <stdio.h>
+
+int calc_tri_num(int n) {
+  int sum = 0;
+  for (int i = 1; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
+}
 
 int main() {
   // find triangle numbers by creating a sum that adds the natural numbers
   // then find the factors for those triangle numbers
   // the first with over 500 factors wins
 
-  int tri_nums = 500;
+  int found = 0;
+  int n = 10;
+
+  while (!found) {
+    int tri_num = calc_tri_num(n);
+    unsigned long *factors = find_factors_simple(tri_num);
+    int factor_count = count_array_elements(factors);
+
+    if (factor_count == 500) {
+      printf("%d\n", calc_tri_num(n));
+    } else {
+      // printf("%d\n", factor_count);
+      n++;
+    }
+  }
 }

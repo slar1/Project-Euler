@@ -18,6 +18,6 @@ unsigned long *find_primes(unsigned long n);
  * @param Pointer to array of primes
  * #return Returns integer number of primes
  */
-int prime_count(unsigned long *prime_array);
+int array_count(unsigned long *prime_array);
 
 #endif
