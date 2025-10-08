@@ -58,7 +58,7 @@ p_q small_n_factors(unsigned long n) {
 
 unsigned long *find_factors_simple(unsigned long n) {
   unsigned long *factor_list;
-  size_t size = 1000;
+  size_t size = 64;
   int index = 0;
 
   factor_list = (unsigned long *)malloc(size * sizeof(unsigned long));
@@ -66,12 +66,28 @@ unsigned long *find_factors_simple(unsigned long n) {
     exit(1);
   }
 
-  for (int i = 1; i < n / 2; i++) {
+  for (int i = 1; i <= (unsigned long)sqrt(n); i++) {
     if (n % i == 0) {
       factor_list[index] = i;
       index += 1;
+
+      unsigned long other = n / i;
+      if (other != i) {
+        factor_list[index] = other;
+        index += 1;
+      }
+    }
+
+    if (index >= (int)size - 2) {
+      size *= 2;
+      factor_list = realloc(factor_list, size * sizeof(unsigned long));
+      if (!factor_list)
+        exit(1);
     }
   }
+
+  factor_list[index] = 0;
+
   return factor_list;
 }
 
