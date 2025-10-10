@@ -2,8 +2,16 @@
 #include <stdio.h>
 
 int main() {
-  unsigned long long sum = (unsigned long long)pow(2, 100);
-  printf("%llu\n", sum);
+  char str[400];
+  int i = 0;
+  sprintf(str, "%f", pow(2, 1000));
+  int sum = 0;
 
+  while (str[i] != '.') {
+    sum += str[i] - '0';
+    i++;
+  }
+
+  printf("%d\n", sum);
   return 0;
 }
