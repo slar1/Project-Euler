@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Iinclude -Wall -O2
-LIBS = -lm
+LIBS = -lm -lgmp
 
 SRC_MODULES = $(wildcard src/*.c)
 
