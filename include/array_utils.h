@@ -1,5 +1,5 @@
-#ifndef FIND_PRIMES_H
-#define FIND_PRIMES_H
+#ifndef ARRAY_UTILS_H
+#define ARRAY_UTILS_H
 
 /**
  * @file array_utils.h
