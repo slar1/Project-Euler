@@ -1,5 +1,5 @@
 # To compile
-In the directory with each problem run:
+In the root directory containing each problem folder:
 
 ```
 make PROBLEM=#### problem
