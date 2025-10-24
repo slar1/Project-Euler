@@ -58,4 +58,11 @@ unsigned long euclidean_gcd(unsigned long a, unsigned long b);
  */
 unsigned long *find_factors_simple(unsigned long n);
 
+/*
+ * @brief Calculates list of proper divisors. Simple brute force.
+ * @param n
+ * @return unsigned long List of proper divisors
+ */
+unsigned long *find_proper_divisors_simple(unsigned long n);
+
 #endif

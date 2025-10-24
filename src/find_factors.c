@@ -91,6 +91,41 @@ unsigned long *find_factors_simple(unsigned long n) {
   return factor_list;
 }
 
+unsigned long *find_proper_divisors_simple(unsigned long n) {
+  unsigned long *factor_list;
+  size_t size = 64;
+  int index = 0;
+
+  factor_list = (unsigned long *)malloc(size * sizeof(unsigned long));
+  if (factor_list == NULL) {
+    exit(1);
+  }
+
+  for (int i = 1; i <= (unsigned long)sqrt(n); i++) {
+    if (n % i == 0) {
+      if (i != n) {
+        factor_list[index++] = i;
+      }
+
+      unsigned long other = n / i;
+      if (other != i && other != n) {
+        factor_list[index++] = other;
+      }
+    }
+
+    if (index >= (int)size - 2) {
+      size *= 2;
+      factor_list = realloc(factor_list, size * sizeof(unsigned long));
+      if (!factor_list)
+        exit(1);
+    }
+  }
+
+  factor_list[index] = 0;
+
+  return factor_list;
+}
+
 // unsigned long *find_factors_qs(unsigned long n) {
 //   // TODO: THIS LATER MAYBE.
 //   // Find factors using a quadratic seive
