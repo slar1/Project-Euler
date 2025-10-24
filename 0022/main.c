@@ -4,7 +4,13 @@
 #include <string.h>
 
 int compare_names(const void *name_1, const void *name_2) {
-  //
+  // Each element of the names array is a pointer to the beginning of a string
+  // qsort accepts all data types, to do this it sets a void pointer to the
+  // pointer of our name. So the type being passed into compare_names is
+  // effectively a pointer to a pointer by casting (const char **) we assign the
+  // correct type to our name_1/2, which is a pointer to a pointer that points
+  // to a char. After this we dereference once so that we can access the actual
+  // string.
   const char *name1 = *(const char **)name_1;
   const char *name2 = *(const char **)name_2;
   return strcmp(name1, name2);
@@ -33,7 +39,7 @@ int main() {
   fclose(fp);
 
   char *names[6000]; // names is a list where each element is a pointer to a
-                     // char and each char points to a string
+                     // char which is the beginning of a string.
   int count = 0;
 
   // breaks string into tokens seperated by delimiters
