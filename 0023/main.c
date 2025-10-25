@@ -49,22 +49,13 @@ int main() {
     }
   }
 
-  // Step 2: for each integer up to 28123, subtract from that integer an
-  // abundant number to find the compliment. If the compliment exists in the
-  // abundant numbers, then do not sum.
+  // Step 2: for each integer up to 28123, if that integer is greater than any
+  // abundant numbers, then subtract that abundant number from the integer and
+  // see if the compliment exists in the abundant numbers.
   int broke;
   for (int i = 1; i <= limit; i++) {
     broke = 0;
-    // largest abundant number is abundant_numbers[i]
-    // smallest abundant number is abundant_numbers[j]
-    // if largest - smallest is in abundant_numbers pass
-    // if j finishes without finding a sum, then add abundant[i] to
-    // non_abundant_sum
 
-    // if (abundant_numbers[i] > 28000) {
-    //   printf("%d\n", abundant_numbers[i]);
-    // }
-    // printf("%d\n", abundant_numbers[i]);
     for (int j = 0; j < abundant_count; j++) {
       if (abundant_numbers[j] >= i) {
         break;
