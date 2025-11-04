@@ -46,7 +46,7 @@ int main() {
     int temp;
     int count_down = arr_len - 1;
 
-    for (int i = largest_index_k + 1; count_down - i >= 0; i++) {
+    for (int i = largest_index_k + 1; count_down > i; i++) {
       temp = arr[i];
       arr[i] = arr[count_down];
       arr[count_down] = temp;
