@@ -22,14 +22,6 @@ int is_perfect_square(unsigned long n) {
   return root * root == n;
 }
 
-// p_q quadratic_sieve(unsigned long n) {
-//   // TODO: THIS LATER MAYBE.
-//   p_q result;
-//   result.p = 0;
-//   result.q = 0;
-//   return result;
-// }
-
 p_q small_n_factors(unsigned long n) {
   double x = round(sqrt((double)n));
   int found = 0;
@@ -49,12 +41,6 @@ p_q small_n_factors(unsigned long n) {
 
   return result;
 }
-
-// unsigned long *find_factors(unsigned long n) {
-//   // TODO: THIS LATER;
-//   unsigned long *factor_list = {0};
-//   return factor_list;
-// }
 
 unsigned long *find_factors_simple(unsigned long n) {
   unsigned long *factor_list;
@@ -125,13 +111,3 @@ unsigned long *find_proper_divisors_simple(unsigned long n) {
 
   return factor_list;
 }
-
-// unsigned long *find_factors_qs(unsigned long n) {
-//   // TODO: THIS LATER MAYBE.
-//   // Find factors using a quadratic seive
-//   // https://www.youtube.com/watch?v=5ekTew5Kj7w
-//   //
-//   https://medium.com/nerd-for-tech/heres-how-quadratic-sieve-factorization-works-1c878bc94f81
-//   unsigned long *result = {0};
-//   return result;
-// }
