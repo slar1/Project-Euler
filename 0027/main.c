@@ -27,11 +27,9 @@ static int arr[3] = {0, 0, 0};
 int main() {
   for (int a = -999; a < 1000; a++) {
     for (int b = -1000; b <= 1000; b++) {
-      if (b > 1 && isPrime(b)) {
-        int consecutivePrimes = getConsecutivePrimes(a, b);
-        if (arr[2] < consecutivePrimes) {
-          updateArr(arr, a, b, consecutivePrimes);
-        }
+      int consecutivePrimes = getConsecutivePrimes(a, b);
+      if (arr[2] < consecutivePrimes) {
+        updateArr(arr, a, b, consecutivePrimes);
       }
     }
   }
