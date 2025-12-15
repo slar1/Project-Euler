@@ -3,8 +3,14 @@
 
 /**
  * @file array_utils.h
- * @brief Function declarations array_utils
+ * @brief Function declarations for type agnostic arrays
  */
+
+typedef struct __array_t {
+  void *arr;
+  int size;
+  int length;
+} Array;
 
 /**
  * @brief Counts the number of elements of an unsigned long array
