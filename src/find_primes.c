@@ -44,6 +44,6 @@ int isPrime(int n) {
       return 0;
     }
   }
-  // printf("Prime: %ld\n", n);
+  printf("Prime: %d\n", n);
   return 1;
 }
