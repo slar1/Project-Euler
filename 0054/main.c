@@ -13,17 +13,16 @@ struct card {
 
 // Struct for a hand
 struct hand {
-  struct card *hand;
-
   // Hand value
   int hand_value;
 
-} hand1, hand2;
+  struct card *hand[];
+} hand;
 
 int equal_suits(struct hand *h) {
-  for (int c = 1; c < 5; c++) {
+  for (int c = 1; c <= 5; c++) {
     // Check if each card's suit is the same
-    if (h->hand[c].suit != h->hand[c - 1].suit) {
+    if (h->hand[c]->suit != h->hand[c - 1]->suit) {
       return 0;
     }
   }
@@ -35,9 +34,9 @@ int ordered(struct hand *h) {
   // straight.
 
   // If no ace exists
-  if (h->hand[4].value != 13) {
+  if (h->hand[4]->value != 13) {
     for (int c = 3; c >= 0; c--) {
-      if (h->hand[c + 1].value - h->hand[c].value != 1) {
+      if (h->hand[c + 1]->value - h->hand[c]->value != 1) {
         return 0;
       }
     }
@@ -46,19 +45,19 @@ int ordered(struct hand *h) {
 
   // If ace exists and 2 exists, check if cards 0 to 4 are straight. If they
   // are straight, ace becomes 1.
-  if (h->hand[4].value == 13 && h->hand[0].value == 2) {
+  if (h->hand[4]->value == 13 && h->hand[0]->value == 2) {
     for (int c = 2; c >= 0; c--) {
-      if (h->hand[c + 1].value - h->hand[c].value != 1) {
+      if (h->hand[c + 1]->value - h->hand[c]->value != 1) {
         return 0;
       }
     }
     // Change ace to 1, update hand struct's hand, return 1.
-    struct card update_ace = {1, h->hand[4].suit};
+    struct card update_ace = {1, h->hand[4]->suit};
     struct card *updated_hand = malloc(5 * sizeof(struct card));
     updated_hand[0] = update_ace;
 
     for (int c = 1; c < 5; c++) {
-      updated_hand[c] = h->hand[c];
+      updated_hand[c] = *h->hand[c];
     }
     h->hand = updated_hand;
     return 1;
@@ -162,58 +161,67 @@ int compare_hands(struct hand h1, struct hand h2) {
   return 0;
 }
 
+struct hand get_hands(char str[]) {
+  // Expects a string with 29 characters
+  struct hand hand1;
+  struct hand hand2;
+}
+
 int main() {
-  FILE *file;
-  char line_buffer[MAX_LINE_LENGTH];
+  // First tests.
+  char first_str[] = "8C TS KC 9H 4S 7D 2S 5D 3S AC";
 
-  file = fopen("0054_poker.txt", "r");
-
-  if (file == NULL) {
-    printf("Error: No file.\n");
-    return 1;
-  }
-
-  char ch;
-
-  int ch_count = 1;
-  int value_suit = 0;
-
-  struct card hand1[5], hand2[5];
-
-  // I think load it line by line, and then go from there.
-  while ((ch = fgetc(file)) != EOF) {
-    if (ch == ' ') {
-      continue;
-    }
-
-    if (ch == 'T') {
-      ch = 10;
-    } else if (ch == 'J') {
-      ch = 11;
-    } else if (ch == 'Q') {
-      ch = 12;
-    } else if (ch == 'K') {
-      ch = 13;
-    } else if (ch == 'A') {
-      ch = 14;
-    } else if (ch == 'C') {
-      ch = 0;
-    } else if (ch == 'S') {
-      ch = 1;
-    } else if (ch == 'H') {
-      ch = 2;
-    } else if (ch == 'D') {
-      ch = 3;
-    } else {
-      ch = ch - '0';
-    }
-
-    if (ch_count % 2 != 0) {
-    }
-
-    putchar(ch);
-  }
-
-  fclose(file);
+  // FILE *file;
+  // char line_buffer[MAX_LINE_LENGTH];
+  //
+  // file = fopen("0054_poker.txt", "r");
+  //
+  // if (file == NULL) {
+  //   printf("Error: No file.\n");
+  //   return 1;
+  // }
+  //
+  // char ch;
+  //
+  // int ch_count = 1;
+  // int value_suit = 0;
+  //
+  // struct card hand1[5], hand2[5];
+  //
+  // // I think load it line by line, and then go from there.
+  // while ((ch = fgetc(file)) != EOF) {
+  //   if (ch == ' ') {
+  //     continue;
+  //   }
+  //
+  //   if (ch == 'T') {
+  //     ch = 10;
+  //   } else if (ch == 'J') {
+  //     ch = 11;
+  //   } else if (ch == 'Q') {
+  //     ch = 12;
+  //   } else if (ch == 'K') {
+  //     ch = 13;
+  //   } else if (ch == 'A') {
+  //     ch = 14;
+  //   } else if (ch == 'C') {
+  //     ch = 0;
+  //   } else if (ch == 'S') {
+  //     ch = 1;
+  //   } else if (ch == 'H') {
+  //     ch = 2;
+  //   } else if (ch == 'D') {
+  //     ch = 3;
+  //   } else {
+  //     ch = ch - '0';
+  //   }
+  //
+  //   if (ch_count % 2 != 0) {
+  //   }
+  //
+  //   putchar(ch);
+  // }
+  //
+  // fclose(file);
   return 0;
 }
