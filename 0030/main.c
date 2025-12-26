@@ -3,7 +3,8 @@
 
 int main() {
   int sum_total = 0;
-  for (int i = 0; i <= 9999999; i++) {
+  int theoretical_maximum = pow(9, 5) * 6;
+  for (int i = 0; i <= theoretical_maximum; i++) {
     // https://www.geeksforgeeks.org/c/how-to-convert-an-integer-to-a-string-in-c/
     int temp = i;
     int sum = 0;

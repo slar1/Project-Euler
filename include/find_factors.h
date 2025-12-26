@@ -65,4 +65,11 @@ unsigned long *find_factors_simple(unsigned long n);
  */
 unsigned long *find_proper_divisors_simple(unsigned long n);
 
+/**
+ * @brief Calculates list of prime factors for a number n. Simple brute force
+ * @param n
+ * @return unsigend long List of factors
+ */
+// unsigned long *find_prime_factors_simple(unsigned long n);
+
 #endif

@@ -1,4 +1,5 @@
 #include "../include/find_factors.h"
+#include "../include/find_primes.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,7 +53,7 @@ unsigned long *find_factors_simple(unsigned long n) {
     exit(1);
   }
 
-  for (int i = 1; i <= (unsigned long)sqrt(n); i++) {
+  for (int i = 1; i * i <= n; i++) {
     if (n % i == 0) {
       factor_list[index] = i;
       index += 1;
@@ -76,6 +77,22 @@ unsigned long *find_factors_simple(unsigned long n) {
 
   return factor_list;
 }
+
+// unsigned long *find_prime_factors_simple(unsigned long n) {
+//
+//   unsigned long *factor_list = find_factors_simple(n);
+//   unsigned long *prime_list;
+//
+//   for (int i = 0; factor_list[i] != 0; i++) {
+//     if (isPrime(factor_list[i])) {
+//
+//
+//
+//     }
+//
+//   }
+//   return prime_list;
+// }
 
 unsigned long *find_proper_divisors_simple(unsigned long n) {
   unsigned long *factor_list;
