@@ -128,3 +128,21 @@ unsigned long *find_proper_divisors_simple(unsigned long n) {
 
   return factor_list;
 }
+
+int gcd(int a, int b) {
+  int c;
+  if (a > b) {
+    c = a;
+    a = b;
+    b = c;
+  }
+
+  for (int i = a; a != 0; a--) {
+    if (a % i == 0) {
+      if (b % i == 0) {
+        return i;
+      }
+    }
+  }
+  return -1;
+}

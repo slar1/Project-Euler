@@ -72,4 +72,6 @@ unsigned long *find_proper_divisors_simple(unsigned long n);
  */
 // unsigned long *find_prime_factors_simple(unsigned long n);
 
+int gcd(int a, int b);
+
 #endif
