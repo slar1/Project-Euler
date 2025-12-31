@@ -35,21 +35,9 @@ int main() {
 
       float original_fraction = (float)a / (float)b;
 
-      if (n2 == 0 || d2 == 0) {
-        continue;
-      }
-
-      if (a == b) {
-        continue;
-        ;
-      }
-      // printf("a / b: %d / %d\n\n", a, b);
-
       if (n1 == d2) {
         float new_fraction = (float)n2 / (float)d1;
         if (compare_floats(new_fraction, original_fraction)) {
-          // printf("a / b: %d / %d\n\n", a, b);
-          // printf("n1 / d2: %d / %d\n\n", n1, d2);
           product_num *= a;
           product_den *= b;
         }
@@ -58,8 +46,6 @@ int main() {
       if (n2 == d1) {
         float new_fraction = (float)n1 / (float)d2;
         if (compare_floats(new_fraction, original_fraction)) {
-          // printf("a / b: %d / %d\n\n", a, b);
-          // printf("n2 / d1: %d / %d\n\n", n1, d2);
           product_num *= a;
           product_den *= b;
         }
@@ -67,7 +53,6 @@ int main() {
     }
   }
 
-  // printf("final: %d / %d", product_num, product_den);
   printf("product: %d\n", product_den / gcd(product_num, product_den));
   return 0;
 }
