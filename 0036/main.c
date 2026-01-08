@@ -29,12 +29,10 @@ int is_int_palindrome(int n) {
 
 int is_string_palindrome(char *bin_string) {
   /*
-   * Checks to see if an binary string is a palindrome
+   * Checks to see if a string is a palindrome
    * Parameter: pointer to string
    * Returns 1 if palindrome exists or 0 if no palindrome exists
    */
-  // char n_string[15];
-  // sprintf(n_string, "%d", n);
 
   int palindrome = 1;
 
@@ -90,7 +88,7 @@ char *int_to_bin(int num) {
 int main() {
   int sum = 0;
 
-  for (int number = 0; number < 1000000; number++) {
+  for (int number = 1; number < 1000000; number++) {
     char *bin = int_to_bin(number);
     int index = 0;
 
